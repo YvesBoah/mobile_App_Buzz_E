@@ -208,7 +208,7 @@ void versActionsClot(){
 
 void versLogin(){
   Navigator.push(context, new MaterialPageRoute(builder: (BuildContext context){
-    return new Login('Connexion');
+    return new LoginPage();
   }));
 }
 
