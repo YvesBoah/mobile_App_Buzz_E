@@ -40,6 +40,7 @@ flutter:
   assets:
      - images/bee.jpg
      - images/z.jpg
+     - images/beee.gif
      - images/lol.png
   #  - images/a_dot_burr.jpeg
   #  - images/a_dot_ham.jpeg

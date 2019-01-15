@@ -5,7 +5,30 @@ class LoginPage extends StatefulWidget {
   _LoginPageState createState() => _LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMixin {
+
+  /* Animation Controller */
+  AnimationController _iconAnimationController;
+  Animation<double> _iconAnimation;
+
+  @override
+  void initState(){
+    super.initState();
+    _iconAnimationController = new AnimationController(
+      vsync: this,
+      duration: new Duration(microseconds: 500)
+    );
+    _iconAnimation = new CurvedAnimation(
+      parent: _iconAnimationController,
+      curve: Curves.easeInOut
+    );
+
+    _iconAnimation.addListener(()=>this.setState((){} ));
+    _iconAnimationController.forward();
+
+  }
+
+  /* Animation Controller */
   
   @override
   Widget build(BuildContext context) {
@@ -26,7 +49,7 @@ class _LoginPageState extends State<LoginPage> {
           new Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-            Image.asset('images/bee.jpg',height: 150.0,),
+            Image.asset('images/bee.jpg',height: _iconAnimation.value * 100 ,),
             
 
             ],
