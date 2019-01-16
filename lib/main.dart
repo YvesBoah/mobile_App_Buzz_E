@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'main0.dart';
+import 'Acceuil.dart';
 void main(){
   runApp( new MyApp() );
 }
@@ -69,22 +69,24 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
              Image.asset('images/beee.gif',height: _iconAnimation.value*100),
+             
             // new FlutterLogo(
             //   size: _iconAnimation.value*100,
             // )
-            new Form( 
+           
+             new Form( 
               child: new Theme(
                 data: new ThemeData(
                   brightness: Brightness.dark , primarySwatch: Colors.teal, 
                   inputDecorationTheme: new InputDecorationTheme(
                     labelStyle: new TextStyle(
-                      color: Colors.teal,
+                      color: Colors.white,
                       fontSize: 20.0
                     )
                   )
                 ),
                 child: new Container(
-                  padding: const EdgeInsets.all(40.0),
+                  padding: const EdgeInsets.all(10.0),
                  child: new Column(
                    crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
@@ -99,7 +101,18 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
                         labelText: "Entrer votre mot passe"
                       ),
                       keyboardType: TextInputType.text,
-                      obscureText: true,
+                      // obscureText: true,
+                    ),
+                    new Padding(
+                      padding: const EdgeInsets.only(top:40),
+                    ),
+                    new MaterialButton(
+                      height: 50.0,
+                      minWidth: 500.0,
+                      color: Colors.red,
+                      textColor: Colors.white,
+                      child: new Text("Connexion"),
+                      onPressed: versHome,
                     ),
                   ],
                 ),
@@ -115,4 +128,9 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
       
     );
   }
+
+void versHome()=> Navigator.push(context, new MaterialPageRoute(builder: (BuildContext context){
+    return new Home();
+  }));
+
 }
