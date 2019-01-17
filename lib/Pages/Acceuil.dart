@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'action_cours.dart';
 import 'action_clot.dart';
-import 'main.dart';
+import 'scan.dart';
+import '../main.dart';
 
 
 void main(){
@@ -164,6 +165,16 @@ class _HomeState extends State<Home> {
                 color: Colors.orange,
               ), 
       ),
+     ListTile(
+              title: Text('Scanner un ticket',
+                  style: TextStyle(fontWeight: FontWeight.w500)),
+              subtitle: Text('Scan'),
+              onTap:faireUnScan,
+              leading: Icon(
+                Icons.camera_alt,
+                color: Colors.orange,
+              ), 
+      ),
       ListTile(
         title: Text('Déconnextion',style: TextStyle(fontWeight: FontWeight.w500)),
         subtitle: Text('Quitter l\'application'),
@@ -206,6 +217,11 @@ void versActionsClot(){
   }));
 }
 
+void faireUnScan(){
+  Navigator.push(context, new MaterialPageRoute(builder: (BuildContext context){
+    return new Scan('Scanner');
+  }));
+}
 void versLogin(){
   Navigator.push(context, new MaterialPageRoute(builder: (BuildContext context){
     return new LoginPage();

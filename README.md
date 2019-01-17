@@ -1,6 +1,6 @@
-# learn
+# BuzzEvent
 
-A new Flutter project.
+Organisation d'évènement
 
 ## Getting Started
 
