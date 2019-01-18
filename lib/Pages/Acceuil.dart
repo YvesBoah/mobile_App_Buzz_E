@@ -19,16 +19,27 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.red,
       ),
       debugShowCheckedModeBanner: false,
-      home: new Home(),
+      home: new Home(nom,email,tel)
     );
   }
 }
 
 class Home extends StatefulWidget {
   _HomeState createState() => _HomeState();
+
+  String email;
+  String nom;
+  String tel;
+  Home(String tel, String email,String nom) {
+     this.email=email;
+    this.nom=nom;
+    this.tel=tel;
+  }
 }
 
 class _HomeState extends State<Home> {
+  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -121,7 +132,7 @@ class _HomeState extends State<Home> {
            //CircleAvatar(
              //child:
             Image.asset('images/lol.png',
-                 height: 80.0,
+                 height: 60.0,
                  width: 180.0,
                  
                   ),
@@ -129,10 +140,12 @@ class _HomeState extends State<Home> {
                   
               
            
-            Text(''),
-            Text('Organisation d\'évènement ',
-                  style: TextStyle(fontWeight: FontWeight.w500)),
-            Text('Administrateur Système'),
+            Text('$nom'),
+            Text('$email'),
+            Text('$tel'),
+            // Text('Organisation d\'évènement ',
+            //       style: TextStyle(fontWeight: FontWeight.bold)),
+            Text('Administrateur Système',style: TextStyle(fontWeight: FontWeight.bold)),
           ],
         
         ),
